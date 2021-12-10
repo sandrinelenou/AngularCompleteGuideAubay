@@ -1,0 +1,19 @@
+<div>
+  <div class="card my-3 p-2" style="width: 18rem;">
+    <p class="card-title">{{ element.name}}</p>
+    <div class="">
+      <p class="card-text"><strong *ngIf="element.type === 'server'" [ngStyle]="{color:'red'}">{{ element.content}}</strong></p>
+      <strong *ngIf="element.type === 'blueprint'" >{{ element.content}}</strong>
+    </div>
+  </div>
+</div>
+
+<!--
+  <div class="panel panel-default" >
+    <div class="panel-heading">{{ element.name}}</div>
+    <div class="panel-body">
+      <p><strong *ngIf="element.type === 'server'" [ngStyle]="{color:'red'}">{{ element.content}}</strong></p>
+      <em *ngIf="element.type === 'blueprint'">{{ element.content}}</em>
+    </div>
+  </div>
+-->

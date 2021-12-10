@@ -1,0 +1,14 @@
+<div class="row">
+
+  <div class="col-md-5">
+    <app-recipe-list  (recipeListEvent) = "selectedRecipe($event)"></app-recipe-list>
+    <!--<app-recipe-list  (recipeListEvent) @Output event from child = "writeDetail($event)" source method from parent></app-recipe-list>-->
+  </div>
+
+  <div class="col-md-7">
+    <app-recipe-detail [recipeDetail]="recipe"  *ngIf="recipe ; else infoText"></app-recipe-detail>
+    <ng-template #infoText> <p>Please select a Recipe for the details !!</p></ng-template>
+    <!--<app-recipe-detail [detail] @Input() property from child ="recipeDetail" source property from parent ></app-recipe-detail>-->
+  </div>
+
+</div>

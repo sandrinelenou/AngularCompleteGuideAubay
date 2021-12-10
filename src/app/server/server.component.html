@@ -1,0 +1,86 @@
+<div class="container m-r">
+  <h1 class="text-center">app server component</h1>
+<label>Server Name</label>
+<button class="btn btn-success" (click)="onAddServer()">Add server</button>
+<ul class="list-group">
+  <li>
+    <a href=""
+    class="list-group-item"
+    *ngFor="let server of servers ; let id = index"
+     (click)="onRemoveServer(id)"
+     >
+     {{ server}}
+    </a>
+  </li>
+</ul>
+<ul class="list-group">
+  <a href="#"
+   class="list-group-item"
+   style="cursor: pointer;"
+   *ngFor=""
+   >
+
+  </a>
+</ul>
+<!--<input
+ type="text"
+ class="form-control"
+ (input)="onUpdateServerName($event)"
+ >-->
+ <h3 class="text-center">Data Binding</h3>
+ <h4>String interpolation
+   <p class="text-center">{{title}}</p>
+ </h4>
+
+<h4 class="text-center">Two way binding</h4>
+ <input
+ type="text"
+ class="form-control"
+[(ngModel)] = "serverName">
+
+ <p>{{ serverName}}</p>
+ <button class="btn btn-primary" [disabled]="serverName == '' " (click)=" serverName=''">Reset serverName</button>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">add server</button>
+<p>{{ allowNewServer}}</p>
+<p>{{ serverCreationStatus}}</p>
+
+<h4 class="text-center">directives struturales and attributes</h4>
+<p *ngIf="serverCreated ; else noServer">Server was created, server name is {{ serverName}}</p>
+<ng-template #noServer>
+  <p No Server was created !></p>
+</ng-template>
+<p > No Server created !</p>
+<p [ngStyle]="{backgroundColor:'red'}">{{'server'}} with ID {{serverId}} is {{getServerStatus()}}</p>
+<p [ngStyle]="{backgroundColor:getColor()}">{{'server'}} with ID {{serverId}} is {{getServerStatus()}}</p>
+
+<h4 class="text-center">applying css class dynamically with ngClass</h4>
+<p
+[ngStyle]="{backgroundColor: getColor()}"
+[ngClass]="{online : serverStatus === 'online', offline : serverStatus === 'offline' }">
+{{'server'}} with ID {{serverId}} is {{getServerStatus()}}
+</p>
+
+<h4>Outputting Lists with ngFor</h4>
+<p *ngFor="let server of servers">{{server}}</p>
+
+<h4 class="text-center">Getting the Index when using ngFor</h4>
+<button class="btn btn-primary" (click)="onToogleDetails()">Display Details</button>
+<p *ngIf="showSecret"> Secret Password = tuna</p>
+<div
+  *ngFor="let logItem of log ; let i = index "
+  [ngStyle]="{backgroundColor:logItem >= 5 ? 'blue' : 'transparent'}"
+  [ngClass]="{'white.text' : logItem >= 5 }"
+  >
+{{ logItem}}
+</div>
+
+<div
+  *ngFor="let logItem of log ; let i = index "
+  [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+  [ngClass]="{'white.text' : i >= 4 }"
+  >
+{{ i }}-{{ logItem}}
+</div>
+
+
+</div>

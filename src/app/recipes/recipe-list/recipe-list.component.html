@@ -1,0 +1,33 @@
+<!--<p>recipe-list works!</p>-->
+<div class="ror">
+  <div class="col-xs-12">
+    <button class="btn btn-success">New Recipe</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 mt-4">
+    <app-recipe-item *ngFor="let recipeEl of recipes, let i = index" [recipeItem]="recipeEl" (recipeSelectedItemdEvent)="onRecipeItemSelected($event)"></app-recipe-item>
+   <!--<app-recipe-item  [recipe] @Input() property from child = "recipeEl" source property from parent </app-recipe-item></app-recipe-item>-->
+
+   <!--<a
+    href="#"
+    class="list-group-item clearfix"
+    *ngFor="let recipe of recipes, let i = index">
+      <div class="float-left">
+        <h4 class="list-group-item-heading">{{ recipe.name}}</h4>
+        <p class="list-group-item-text">Des{{ recipe.description}}
+          <span class="float-right">
+            <img
+            [src]="recipe.imagePath"
+             alt="{{ recipe.name}}"
+             class="img-responsive"
+             style="max-height: 50px;">
+          </span>
+        </p>
+
+      </div>
+
+    </a>--> <!--src="{{ recipe.imagePath }}"-->
+  </div>
+</div>

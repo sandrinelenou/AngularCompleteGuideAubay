@@ -1,0 +1,40 @@
+<div class="row" >
+  <div class="col-xs-12" *ngIf="recipeDetail">
+    <img src="{{ recipeDetail.imagePath}}" alt="" class="img-responsive" [ngStyle]="{'max-width': '80px'}"><!--[src]="recipeDetail.imagePath"-->
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h5 *ngIf="recipeDetail">{{ recipeDetail.name}}</h5>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group open">
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle">
+        Recipe Manage <span class="caret"></span>
+    </button>
+      <ul class="dropdown-menu ">
+        <li><a href="#">Add Ingredients to shopping list</a></li>
+        <li><a href="#">Edit Recipe</a></li>
+        <li><a href="#">Delete Recipe</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5 *ngIf="recipeDetail">{{ recipeDetail.description}}</h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5 >Ingredients</h5>
+  </div>
+</div>
