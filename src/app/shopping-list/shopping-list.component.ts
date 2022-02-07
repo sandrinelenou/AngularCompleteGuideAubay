@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Ingredient } from '../shared/ingredient.module';
 
 @Component({
@@ -8,6 +9,8 @@ import { Ingredient } from '../shared/ingredient.module';
 })
 export class ShoppingListComponent implements OnInit {
 //ingredients = Ingredient[] = [];
+  //ingredients = Ingredient[] = [];
+  formShopping!: NgForm;
 
   ingredients : Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -19,6 +22,11 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(formShopping: NgForm){
+    this.formShopping;
+
+
+  }
 
   reciveEmitEvent(ingredient: Ingredient){
     console.log('Recive emit event dal figlio shopping list');

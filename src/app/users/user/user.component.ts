@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class UserComponent implements OnInit, OnDestroy {
 user!: {id:string, name:string};
 paramsSubscription! : Subscription;
+
 
   constructor(private route : ActivatedRoute) { }
 

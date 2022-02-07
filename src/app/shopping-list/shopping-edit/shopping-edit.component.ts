@@ -24,22 +24,21 @@ ingredients: Ingredient[] = [];
   ngOnInit(): void {
   }
 
-  /*onAddIngredient(){
+  onAddIngredient(){
     //console.log(this.inputNameRef)
     const  name = this.inputNameRef.nativeElement.value; // const perche non è una variabile da modificare rispetto a let
     const amount = this.inputAmountRef.nativeElement.value
     const newIngredient = new Ingredient(name , amount);
     this.IngredientAdded.emit(newIngredient);
 
-  }*/
-  onAddIngredient(){
+  }
+  /*onAddIngredient(){
     //console.log(this.inputNameRef)
     this.IngredientAdded.emit({
         name: this.inputNameRef.nativeElement.value,
         amount:this.inputAmountRef.nativeElement.value
       });
-
-  }
+  }*/
 
 
 }

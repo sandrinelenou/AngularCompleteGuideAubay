@@ -6,9 +6,10 @@
   </div>
 
   <div class="col-md-7">
+
     <app-recipe-detail [recipeDetail]="recipe"  *ngIf="recipe ; else infoText"></app-recipe-detail>
     <ng-template #infoText> <p>Please select a Recipe for the details !!</p></ng-template>
-    <!--<app-recipe-detail [detail] @Input() property from child ="recipeDetail" source property from parent ></app-recipe-detail>-->
+    <!--<app-recipe-detail [recipeDetail] @Input() property from child ="recipeDetail" source property from parent ></app-recipe-detail>-->
   </div>
 
 </div>

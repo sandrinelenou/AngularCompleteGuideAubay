@@ -23,9 +23,8 @@ export class ServersComponent implements OnInit {
       name: 'ProductionServer',
       status: 'offline'
     },
-
-
 ];
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,0 +1,14 @@
+<!--<p>recipe-list works!</p>-->
+<div class="ror">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewProduct()">New Product click</button>&nbsp;
+    <a class="btn btn-success" routerLink="/new">New Product</a>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 mt-4">
+    <app-product-item *ngFor="let productEl of products ; let i = index " [product] = "productEl"  [index]="i"></app-product-item>
+     <!--<app-product-item  [product] @Input() property from child = "productEl" source property from parent </app-product-item>-->
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<h3 class="text-center">Product Detail</h3>
+<div class="row" >
+  <div class="col-xs-12" *ngIf="productDetail">
+    <img src="{{ productDetail.imagePath}}" alt="" class="img-responsive" [ngStyle]="{'max-width': '80px'}"><!--[src]="productDetail.imagePath"-->
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h5 *ngIf="productDetail">{{ productDetail.name}}</h5>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12">
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Product Manage <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" routerLink="/new">Add Ingredients to shopping list</a></li>
+        <li><a class="dropdown-item"routerLink="/product/:id/edit">Edit Recipe</a></li>
+        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+      </ul>
+    </div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5 *ngIf="productDetail">{{ productDetail.description}}</h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h5 >Ingredients</h5>
+  </div>
+</div>
+

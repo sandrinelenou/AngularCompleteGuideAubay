@@ -1,3 +1,5 @@
+//import $  jquery;
+//import 'bootstrap';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,10 +30,21 @@ import { UserComponent } from './users/user/user.component';
 import { ServersComponent } from './servers/servers.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { HomeServerComponent } from './home-server/home-server.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 
 
 
-export const ROUTES: Routes = [
+
+
+
+
+/*export const ROUTES: Routes = [
   { path: 'server', component: ServerComponent},
   { path: 'recipes', component: RecipesComponent},
   { path: 'shopping-list', component: ShoppingListComponent},
@@ -45,7 +58,7 @@ export const ROUTES: Routes = [
   { path: 'servers', component: ServersComponent},
   { path: 'servers/:id/edit', component: EditServerComponent},
   { path: 'home-server', component: HomeServerComponent},
-]
+];*/
 
 @NgModule({
   declarations: [
@@ -73,13 +86,21 @@ export const ROUTES: Routes = [
     UsersComponent,
     ServersComponent,
     EditServerComponent,
-    HomeServerComponent
+    HomeServerComponent,
+    RecipeStartComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    ProductItemComponent,
+    ProductsComponent,
+    ProductEditComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    //RouterModule.forRoot(ROUTES),
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
