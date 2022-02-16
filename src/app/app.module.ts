@@ -37,6 +37,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { AuthComponent } from './auth/auth/auth.component';
 
 
 
@@ -92,7 +93,8 @@ import { ProductEditComponent } from './products/product-edit/product-edit.compo
     ProductDetailComponent,
     ProductItemComponent,
     ProductsComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    AuthComponent
 
   ],
   imports: [

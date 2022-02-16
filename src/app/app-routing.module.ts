@@ -1,3 +1,4 @@
+import { AuthComponent } from './auth/auth/auth.component';
 import { Route } from "@angular/compiler/src/core";
 import { NgModule } from "@angular/core";
 import {  RouterModule, Routes } from "@angular/router";
@@ -24,6 +25,8 @@ import { UsersComponent } from "./users/users.component";
 export const appRoutes: Routes = [
 
   { path: 'server', component: ServerComponent},
+  { path: 'auth', component: AuthComponent},
+  { path: 'recipes', component: RecipesComponent},
   { path: 'products', component: ProductListComponent, children: [
    // {path: '', component: ProductStartComponent},
     {path: ':id', component: ProductDetailComponent}

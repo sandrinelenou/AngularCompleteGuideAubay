@@ -7,12 +7,11 @@ import { Ingredient } from 'src/app/shared/ingredient.module';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
+
 ingredients: Ingredient[] = [];
 //ingredient = new Ingredient(name:string, amount: number);
-  //ingredient = new Ingredient(name:string, amount: number);
-  //ingredient = new Ingredient(name:string, amount: number);
-  //ingredient = new Ingredient(name:string, amount: number);
-  @ViewChild('inputName', { static: true })
+
+@ViewChild('inputName', { static: true })
   inputNameRef!: ElementRef;
 @ViewChild('inputAmount',{static: true}) inputAmountRef!: ElementRef;
 @Output() IngredientAdded = new EventEmitter<{name: string, amount: number}>();
