@@ -1,0 +1,190 @@
+  <!--<app-server></app-server>-->
+
+  <div class="container">
+    <!-- <app-header (recipeSelected)="onNavigate($event)"></app-header> -->
+    <!--(recipeSelected) @output() event from child = "onNavigate($event)" source method from parent -->
+    <div class="row my-5 pb-3 border border-warning border-3" >
+      <div class="col-md-12">
+        <h5 class="text-center py-3">Changing Pages with Routing(Router-Outlet)</h5>
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </div>
+
+
+<div class="row border border-success border-3 my-5">
+  <h5 class="text-center my-2">Products (Routing, child routing,Passing Dynamic parameters to Links, retrieve route parameters,)</h5>
+  <app-products></app-products>
+</div>
+
+
+<div class="row border  border-dark border-3 my-5 py-3">
+  <div class="col-md-12">
+    <h5 class="text-center">Directive attribut, Using the Renderer to build a Better Attribute Directive, Using HostListener to Listen to Host Events, HostBinding</h5>
+    <p appBasicHighlight>Directive d'attribut, style me with basic directive attribut</p>
+    <p appBetterHighlight>Directive d'attribut, style me with a better directive attribut</p>
+    <input type="text" class="for-control" appBasicHighlight>
+  </div>
+</div>
+
+    <div class="row border  border-info border-3 my-5 py-5">
+      <h5 class="text-center">Driective Deep Drive(Directive Avancées).attribute Directive: ngClass-ngStyle,ng-template</h5>
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd"
+        ><!---->
+        Only show odd numbers
+        </button><br><br>
+        <ul class="list-group">
+         <div *ngIf="onlyOdd">
+          <li class="list-group-item"
+          *ngFor="let odd of oddNumber"
+          [ngClass]="{odd:odd % 2 !== 0}"
+          [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+          >{{ odd }}</li>
+          <!--se i numeri dispari non sono pari applica la classe odd, or non lo sono quindi agguinge class odd-->
+          <!--se i numeri dispari non sono pari applica il style , or non lo sono-->
+         </div>
+
+         <div *ngIf="!onlyOdd">
+          <li class="list-group-item"
+          *ngFor="let even of evenNumber"
+          [ngClass]="{odd:even % 2 !== 0}"
+          [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          >{{ even }}</li><!--se i numeri pari non è pari applica la classe odd or non lo sono quindi non agguinge la classe odd -->
+           <!--se i numeri pari non sono pari applica il style , or lo sono quidi transparent-->
+        </div>
+
+        <ng-template  [ngIf]="!onlyOdd" class="border-top">
+           <div >
+            <li class="list-group-item"
+            *ngFor="let even of evenNumber"
+            [ngClass]="{odd:even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+            >{{ even }}</li>
+           </div>
+       </ng-template>
+          <!--<li class="list-group-item" *ngFor="let number of numbers" *ngIf="oddNUmber ">{{ number }}</li> -->
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <div class="row border  border-dark border-3 my-5 py-5">
+      <h5 class="text-center">Driective Deep Drive(Directive Avancées).,Building a Structural Directive: TemplateRef-ViewContainerRef</h5>
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd"
+        ><!---->
+        Only show odd numbers
+        </button><br><br>
+        <ul class="list-group">
+         <div *ngIf="onlyOdd">
+          <li class="list-group-item"
+          *ngFor="let odd of oddNumber"
+          [ngClass]="{odd:odd % 2 !== 0}"
+          [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+          >{{ odd }}</li>
+          <!--se i numeri dispari non sono pari applica la classe odd, or non lo sono quindi agguinge class odd-->
+          <!--se i numeri dispari non sono pari applica il style , or non lo sono-->
+         </div>
+
+         <div *appUnless="onlyOdd"> <!--appUnless è il contrario di if -->
+          <li class="list-group-item"
+          *ngFor="let even of evenNumber"
+          [ngClass]="{odd:even % 2 !== 0}"
+          [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          >{{ even }}
+        </li>
+        <h5 class="text-center mt-3">Understanding ngSwitch</h5>
+        <div [ngSwitch]="value">
+          <p *ngSwitchCase="5">value is 5</p>
+          <p *ngSwitchCase="10">value is 10</p>
+          <p *ngSwitchCase="100">value is 100</p>
+          <p  *ngSwitchDefault>value is default</p>
+        </div>
+        </div>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+  <h3 class="text-center mt-3">Passare i dati tra components</h3>
+  <!--{{title}} - {{time}}-->
+    <!--<app-cockpit (cockpitstart) = "prepareCockpit($event)"
+    ></app-cockpit>-->
+    <div class="row border border-dark border- my-4">
+
+    </div>
+    <div class="row border border-success border-3">
+      <div class="col-md-12 my-4">
+        <h5 class="text-center">Adding Navigation with Event Binding and ngIf, Dropdown Directive</h5>
+         <app-recipes *ngIf="loadedFeature == 'recipe'"></app-recipes>
+        <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
+      </div>
+    </div>
+
+    <div class="row border border-primary border-3 mt-3 py-3">
+      <h5 class="text-center">Game Control Event (Increment Number)</h5>
+      <h6 class="text-center">@Output() lets the child send data to a parent component(eventName: eventEmitter= new EventEmitter<>()).</h6>
+      <app-game-control  (gameStartEvent)="onGameControlAdd($event)" ></app-game-control>
+      <!--<app-odd [gameStartEvent]@output() event from child = "onGameControlAdd($event)" source method from parent></app-odd>-->
+    </div>
+
+    <div class="row border border-warning border-3 border-3 mt-3 py-3">
+      <h6 class="text-center">Parent Sending data to a child component (@Input()). lets a parent component update data in the child component.</h6>
+     <div class="col-6">
+      <h5 class="text-center">App Odd</h5>
+
+      <app-odd  *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+      <!--<app-odd [number] @Input() property from child = "oddNumber" source property from parent></app-odd>-->
+     </div>
+
+     <div class="col-6">
+      <h5 class="text-center">App Even</h5>
+      <app-even  *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
+      <!--<app-even [number] @Input() property from child = "oddNumber" source property from parent></app-even>-->
+     </div>
+
+    </div>
+
+
+   <div class="row border border-success border-3 mt-5 py-3">
+    <app-cockpit
+    (serverCreated) = "onServerAdded($event)"
+    (bluePrintCreated) = "onBlueprintAdded($event)"
+    ></app-cockpit>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <!--<app-server-element *ngFor="let serverElement of serverElements" [element] = "serverElement" ></app-server-element>-->
+        <app-server-element *ngFor="let serverElement of serverElements" [srvElement] = "serverElement" ></app-server-element>
+      </div>
+    </div>
+   </div>
+
+   <div class="row border border-dark border-3 mt-5 py-3">
+     <h5 class="text-center">Using Services & Dependency Injections, Injecting the service into components, Hierarchial Injector,</h5>
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+         <app-new-account (accountAdded) = onAccountAdded($event)></app-new-account>
+          <hr>
+          <app-account
+          *ngFor="let acc of accounts; let i = index"
+          [account] = "acc"
+          [id] = "i"
+          (statusChanged) = "onStatusChanged($event)"
+          ></app-account><!--[id] = ""-->
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+</div>

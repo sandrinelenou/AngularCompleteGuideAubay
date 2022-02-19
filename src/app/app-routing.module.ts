@@ -1,3 +1,5 @@
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { Route } from "@angular/compiler/src/core";
 import { NgModule } from "@angular/core";
@@ -24,6 +26,8 @@ import { UsersComponent } from "./users/users.component";
 
 export const appRoutes: Routes = [
 
+
+  { path: 'home', component: HomeComponent},
   { path: 'server', component: ServerComponent},
   { path: 'auth', component: AuthComponent},
   { path: 'recipes', component: RecipesComponent},
@@ -36,7 +40,7 @@ export const appRoutes: Routes = [
   { path: 'new', component: ProductEditComponent},
 
   { path: 'produit/:id/edit', component: RecipesComponent, children: [
-    {path: '', component: RecipeStartComponent},
+    // {path: '', component: RecipeStartComponent},
     {path: ':id', component: RecipeDetailComponent}
   ]},
   { path: 'shopping-list', component: ShoppingListComponent},

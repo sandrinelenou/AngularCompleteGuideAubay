@@ -1,3 +1,4 @@
+import {  HttpClientModule } from '@angular/common/http';
 //import $  jquery;
 //import 'bootstrap';
 import { NgModule } from '@angular/core';
@@ -38,6 +39,7 @@ import { ProductItemComponent } from './products/product-list/product-item/produ
 import { ProductsComponent } from './products/products.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { AuthComponent } from './auth/auth/auth.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -94,12 +96,14 @@ import { AuthComponent } from './auth/auth/auth.component';
     ProductItemComponent,
     ProductsComponent,
     ProductEditComponent,
-    AuthComponent
+    AuthComponent,
+    HomeComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     //RouterModule.forRoot(ROUTES),
     AppRoutingModule
 
