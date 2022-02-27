@@ -40,6 +40,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { HomeComponent } from './home/home.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 
@@ -97,7 +98,8 @@ import { HomeComponent } from './home/home.component';
     ProductsComponent,
     ProductEditComponent,
     AuthComponent,
-    HomeComponent
+    HomeComponent,
+    LoadingSpinnerComponent
 
   ],
   imports: [

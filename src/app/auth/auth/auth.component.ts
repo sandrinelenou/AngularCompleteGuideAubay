@@ -1,6 +1,8 @@
-import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { AuthService, authResponseData } from './auth.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-auth',
@@ -10,8 +12,14 @@ import { Component, OnInit } from '@angular/core';
 export class AuthComponent implements OnInit {
   isLoginMode = true;
   authForm!: NgForm;
+  errorMessage!: string ;
+  successMessage! :string  ;
+  isLoading : boolean = false;
+  authObs!: Observable<authResponseData>;
 
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,20 +37,34 @@ export class AuthComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
 
+   let authObs : Observable<authResponseData>;  //variabile di tipo observable chi produira i dati di tipo authResponseData
+
+    this.isLoading= true;
     if(this.isLoginMode){
       //signin...
+      this.authObs = this.authService.login(email, password);
+
     }else{
       //signup
-      this.authService.signup(email, password).subscribe(
-        (resData) => {
-          console.log(resData);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-      form.reset; //svuota i campi del form
+      this.authObs = this.authService.signup(email, password);
+        form.reset; //svuota i campi del form
     }
+
+
+    this.authObs.subscribe(
+      (resData: any) => {
+        this.successMessage = 'success login';
+        this.successMessage = this.successMessage;
+        console.log(resData);
+        this.isLoading = false;
+         return this.router.navigate(['/recipes']);
+      },
+      (errorRes: any) => {
+        this.errorMessage = errorRes;
+        this.isLoading= false;
+      }
+    );
+
   } //fin onsubmit
 
 }

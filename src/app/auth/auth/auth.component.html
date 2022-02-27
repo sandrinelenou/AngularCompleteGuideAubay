@@ -1,7 +1,13 @@
-<p>auth works!</p>
+<div class="alert alert-danger" role="alert"   *ngIf="errorMessage"> <p>{{ errorMessage}}</p></div>
+<div class="alert alert-success" role="alert" *ngIf="successMessage"> <p>{{ successMessage}}</p></div>
+
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
 <div class="row">
   <div class="col-xs-12">
-    <form #authForm = "ngForm" (click)="onSubmit(authForm)">
+    <form #authForm = "ngForm" (click)="onSubmit(authForm)" *ngIf="!isLoading">
       <div class="form-group">
         <label for="email">Email</label>
         <input

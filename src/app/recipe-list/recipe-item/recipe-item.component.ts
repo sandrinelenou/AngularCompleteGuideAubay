@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RecipeService } from './../../recipes/recipe.service';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Recipe } from 'src/app/recipes/recipes.model';
 
 
@@ -8,18 +9,22 @@ import { Recipe } from 'src/app/recipes/recipes.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
+
 @Input() recipeItem!: Recipe;
-@Output() recipeSelectedItemdEvent = new EventEmitter<Recipe>();
+// manda una communicazione dal figlio al padre, manda un valore all'externo al padre, la proprieta recipeSelectedItemdEvent permette di salvare il nostro dati da mandare fuori
+//  @Output() recipeSelected = new EventEmitter<Recipe>();
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
-
-  onSelectedItem(){
-    console.log('Evento emesso da recipe item');
-    this.recipeSelectedItemdEvent.emit(this.recipeItem);
+  ngOnInit(){
   }
 
-  ngOnInit(): void {
+  onSelected(){
+    console.log('Evento emesso da recipe item al padre recipe list'  );
+    // this.recipeSelected.emit(this.recipeItem);
+    this.recipeService.recipeSelected.emit(this.recipeItem);
   }
+
+
 
 }

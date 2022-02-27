@@ -66,24 +66,28 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/recipes">Recipes</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/recipes" *ngIf="isAuthenticated">Recipes</a>
           <!--<a class="nav-link"   (click)="onSelect('recipe')">Recipes</a>-->
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/shopping-list">Shopping List</a>
           <!--<a class="nav-link"  (click)="onSelect('shopping-list')">Shopping List</a>--><!--routerLink="/shopping-list"-->
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/auth">Authenticate</a>
+          <a class="nav-link" routerLinkActive="active"  routerLink="/auth" *ngIf="!isAuthenticated">Authenticate</a>
           <!--<a class="nav-link"   (click)="onSelect('recipe')">Recipes</a>-->
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/users">Users</a> <!--en laissant le lien href= "/users" la page se recharge-->
-        </li>
+
+       <!--<li class="nav-item">
+          <a class="nav-link" routerLink="/users">Users</a> en laissant le lien href= "/users" la page se recharge
+        </li>-->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
 
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" style="cursor: pointer;" *ngIf="isAuthenticated">Logout</a> <!--en laissant le lien href= "/users" la page se recharge-->
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Manage <span class="caret"></span>

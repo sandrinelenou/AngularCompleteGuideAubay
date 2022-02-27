@@ -7,7 +7,11 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 mt-4">
-    <app-recipe-item *ngFor="let recipeEl of recipes, let i = index" [recipeItem]="recipeEl" (recipeSelectedItemdEvent)="onRecipeItemSelected($event)"></app-recipe-item>
+    <app-recipe-item
+    *ngFor="let recipeEl of recipes,
+    let i = index"
+     [recipeItem]="recipeEl" ></app-recipe-item>
+    <!-- <app-recipe-item *ngFor="let recipeEl of recipes, let i = index" [recipeItem]="recipeEl" (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipe-item> -->
    <!--<app-recipe-item  [recipe] @Input() property from child = "recipeEl" source property from parent </app-recipe-item></app-recipe-item>-->
 
    <!--<a
