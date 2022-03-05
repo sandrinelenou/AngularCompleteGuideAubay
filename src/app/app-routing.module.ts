@@ -30,7 +30,10 @@ export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'server', component: ServerComponent},
   { path: 'auth', component: AuthComponent},
-  { path: 'recipes', component: RecipesComponent},
+  { path: 'recipes', component: RecipesComponent, children: [
+    {path: '' , component: RecipeStartComponent},
+    {path: ':id', component: RecipeDetailComponent}
+  ]},
   { path: 'products', component: ProductListComponent, children: [
    // {path: '', component: ProductStartComponent},
     {path: ':id', component: ProductDetailComponent}

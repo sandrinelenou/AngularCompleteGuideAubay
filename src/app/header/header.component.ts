@@ -10,8 +10,8 @@ import { Recipe } from "../recipes/recipes.model";
 
 export class HeaderComponent implements OnInit, OnDestroy{
 
-  private userSub!: Subscription; // serve per annulare l'inscrizione se non è piu richiesta
-  isAuthenticated!: boolean;
+  private userSub: Subscription; // serve per annulare l'inscrizione se non è piu richiesta
+  isAuthenticated: boolean;
   constructor( private authService:AuthService){
 
   }

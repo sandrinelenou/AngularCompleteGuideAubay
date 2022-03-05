@@ -1,11 +1,15 @@
 <div class="row" >
-  <div class="col-xs-12" *ngIf="recipeDetail">
-    <img src="{{ recipeDetail.imagePath}}" alt="" class="img-responsive" [ngStyle]="{'max-width': '80px'}"><!--[src]="recipeDetail.imagePath"-->
+  <div class="col-xs-12" >  <!-- *ngIf="recipe" nel caso in cui nel template la variabile era definita con ! recipe!: Recipe-->
+    <img
+    src="{{ recipe.imagePath}}"
+    alt="{{ recipe.name}}"
+    class="img-responsive"
+     [ngStyle]="{'max-width': '300px'}"><!--[src]="recipeDetail.imagePath",  style="max-height: 300px;"-->
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h5 *ngIf="recipeDetail">{{ recipeDetail.name}}</h5>
+    <h2 >{{ recipe.name}}</h2>
   </div>
 </div>
 
@@ -13,29 +17,46 @@
 <div class="row">
   <div class="col-xs-12">
 
-    <div class="btn-group open">
+    <div class="dropdown">
+      <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Recipe Manage
+      </a>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a style="cursor:pointer;" class="dropdown-item"  (click)="onAddToShoppingList()" >Add Ingredients to shopping list</a></li>
+        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
+        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="btn-group " appDropdown>
       <button
         type="button"
         class="btn btn-primary dropdown-toggle">
         Recipe Manage <span class="caret"></span>
     </button>
-      <ul class="dropdown-menu ">
-        <li><a href="#">Add Ingredients to shopping list</a></li>
+      <ul class="dropdown-menu">
+        <li><a style="cursor:pointer;">Add Ingredients to shopping list</a></li>
         <li><a href="#">Edit Recipe</a></li>
         <li><a href="#">Delete Recipe</a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    <h5 *ngIf="recipeDetail">{{ recipeDetail.description}}</h5>
+    <h4 >{{ recipe.description}}</h4>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    <h5 >Ingredients</h5>
+    <!-- <h5 >Ingredients</h5> -->
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let ingredient of recipe.ingredients">
+      {{ ingredient.name}} - {{ ingredient.amount}}</li>
+    </ul>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { ShoppingListService } from './shopping-list.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Ingredient } from '../shared/ingredient.module';
@@ -11,29 +12,25 @@ export class ShoppingListComponent implements OnInit {
 //ingredients = Ingredient[] = [];
   //ingredients = Ingredient[] = [];
   formShopping!: NgForm;
+  ingredients! : Ingredient[] ;
 
-  ingredients : Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 15)
-  ];
-
-  constructor() { }
+  constructor(private shoppingListService : ShoppingListService) { }
 
   ngOnInit(): void {
+    this.ingredients = this.shoppingListService.getIngredients();
+        //devo suscrire al evento per aggiornare il mio array delle nuove modifiche aggiunte  perche ho usato ingredients.slice()
+        this.shoppingListService.ingredientsChanged
+        .subscribe(
+          (ingredients: Ingredient[]) => {
+            this.ingredients = ingredients;
+          }
+        );
   }
 
-  onSubmit(formShopping: NgForm){
-    this.formShopping;
 
-
-  }
-
-  reciveEmitEvent(ingredient: Ingredient){
-    console.log('Recive emit event dal figlio shopping list');
+  onIngredientAdded(ingredient: Ingredient){
+    console.log('{Recive emit event dal figlio shopping list');
     this.ingredients.push(ingredient);
   }
-
-
-
 
 }

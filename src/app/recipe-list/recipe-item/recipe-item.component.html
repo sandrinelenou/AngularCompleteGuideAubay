@@ -1,15 +1,15 @@
  <a
-    href="#"
+    style="cursor: pointer;"
     class="list-group-item clearfix "
     (click)="onSelected()"
    >
       <div class="float-left">
-        <h4 class="list-group-item-heading">{{ recipeItem.name}}</h4>
-        <p class="list-group-item-text">{{ recipeItem.description}}
+        <h4 class="list-group-item-heading">{{ recipe.name}}</h4>
+        <p class="list-group-item-text">{{ recipe.description}}
           <span class="float-right">
             <img
-            [src]="recipeItem.imagePath"
-             alt="{{ recipeItem.name}}"
+            [src]="recipe.imagePath"
+             alt="{{ recipe.name}}"
              class="img-responsive"
              style="max-height: 50px;"> <!--src="{{ recipe.imagePath }}"-->
           </span>

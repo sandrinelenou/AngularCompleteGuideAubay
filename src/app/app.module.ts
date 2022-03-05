@@ -41,6 +41,7 @@ import { ProductEditComponent } from './products/product-edit/product-edit.compo
 import { AuthComponent } from './auth/auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 
 
@@ -110,7 +111,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     AppRoutingModule
 
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
